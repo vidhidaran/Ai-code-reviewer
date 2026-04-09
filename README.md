@@ -1,7 +1,12 @@
-# AI Code Reviewer
+# Ai-code-reviewer
 
-An intelligent code review agent built with LangChain, MCP, and Groq (Llama 3).
-Detects bugs, security issues, and code quality problems in real time.
+An intelligent, agentic full-stack code review platform powered by LangChain, MCP, and Groq. Features a high-fidelity React UI with real-time bug detection, security scanning, and AST-based code analysis.
+
+## 🚀 Key Features
+- **Real-time Bug Detection**: Identifies logical errors and bugs with line numbers.
+- **Security Scanning**: Automatically scans for vulnerabilities.
+- **AST-based Analysis**: Deeper code understanding via Abstract Syntax Trees.
+- **Premium UI**: Modern glass-morphism dashboard with smooth animations.
 
 ## Live Demo
 - Frontend: https://your-vercel-app.vercel.app
@@ -40,7 +45,7 @@ User → React Frontend → Express API → LangChain Agent → MCP Client
 
 ## Local Setup
 # Clone
-git clone https://github.com/yourusername/ai-code-reviewer
+git clone https://github.com/vidhidaran/Ai-code-reviewer
 cd ai-code-reviewer
 
 # Install all dependencies
