@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base:        #0a0a0f;
+  --bg-panel:       #111118;
+  --bg-card:        #1a1a24;
+  --bg-card-hover:  #1e1e2c;
+  --bg-elevated:    #22222e;
+  --bg-input:       #16161f;
+
+  /* Borders */
+  --border-subtle:  rgba(255,255,255,0.06);
+  --border-muted:   rgba(255,255,255,0.10);
+  --border-accent:  rgba(99,102,241,0.4);
+
+  /* Text */
+  --text-primary:   #f1f1f3;
+  --text-secondary: #8b8b9a;
+  --text-tertiary:  #4a4a5a;
+  --text-accent:    #818cf8;
+
+  /* Accent Palette */
+  --violet:         #6366f1;
+  --violet-light:   #818cf8;
+  --violet-dark:    #4f46e5;
+  --violet-glow:    rgba(99,102,241,0.25);
+  --cyan:           #22d3ee;
+  --cyan-glow:      rgba(34,211,238,0.2);
+
+  /* Status */
+  --red:            #ef4444;
+  --red-bg:         rgba(239,68,68,0.10);
+  --red-border:     rgba(239,68,68,0.30);
+  --amber:          #f59e0b;
+  --amber-bg:       rgba(245,158,11,0.10);
+  --amber-border:   rgba(245,158,11,0.30);
+  --teal:           #14b8a6;
+  --teal-bg:        rgba(20,184,166,0.10);
+  --teal-border:    rgba(20,184,166,0.30);
+  --green:          #10b981;
+  --green-bg:       rgba(16,185,129,0.10);
+
+  /* Typography */
+  --font-ui:        'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Sizing */
+  --sidebar-width:  220px;
+  --navbar-height:  52px;
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+
+  /* Shadows */
+  --shadow-card:    0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-glow:    0 0 20px rgba(99,102,241,0.25);
+  --shadow-btn:     0 2px 8px rgba(99,102,241,0.35), 0 0 0 1px rgba(99,102,241,0.2);
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, select {
+  font-family: var(--font-ui);
+  outline: none;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ─── Keyframes ──────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(99,102,241,0.35); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Shimmer skeleton ───────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 0px,
+    var(--bg-elevated) 50px,
+    var(--bg-card) 100px
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Glass panels ───────────────────────────────────────── */
+.glass {
+  background: rgba(17,17,24,0.85);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+}
+
+/* ─── Gradient logo text ─────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #22d3ee 60%, #a78bfa 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ─── Scrollable pane ────────────────────────────────────── */
+.scroll-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ─── Code block inside issue cards ─────────────────────── */
+.code-block {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  background: var(--bg-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #a5b4fc;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ─── Tooltip ────────────────────────────────────────────── */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  border: 1px solid var(--border-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  z-index: 999;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
