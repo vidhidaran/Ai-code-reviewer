@@ -9,8 +9,8 @@ An intelligent, agentic full-stack code review platform powered by LangChain, MC
 - **Premium UI**: Modern glass-morphism dashboard with smooth animations.
 
 ## Live Demo
-- Frontend: deplyment in process
-- Backend: deplyment in process
+- Frontend:https://ai-code-reviewer-beta-three.vercel.app/
+
 
 ## Tech Stack
 - **Frontend**: React, Vite, Monaco Editor, Tailwind, Framer Motion
