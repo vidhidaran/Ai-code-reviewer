@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     rootDir: server
-    buildCommand: npm install
+    buildCommand: npm install && cd ../mcp-servers/code-analysis && npm install && cd ../gemini-review && npm install
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
